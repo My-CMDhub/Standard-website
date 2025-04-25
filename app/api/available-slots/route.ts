@@ -58,7 +58,7 @@ export async function GET(request: Request) {
   try {
     const slots = generateTimeSlots(date);
     return NextResponse.json({ slots });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Invalid date format' },
       { status: 400 }
