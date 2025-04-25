@@ -1,8 +1,13 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #e67e22;
+  --primary-dark: #d35400;
 }
 
 @theme inline {
@@ -23,4 +28,142 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply text-gray-800 bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-2 rounded-full font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply bg-orange-500 text-white hover:bg-orange-600;
+  }
+
+  .btn-outline {
+    @apply border-2 border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Food card animations */
+.food-card {
+  @apply transition-all duration-300 hover:shadow-lg;
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Improve visibility for specific text elements in white theme */
+
+/* Main headings in sections */
+section h2.text-3xl, section h2.text-4xl {
+  @apply text-gray-800 font-extrabold;
+}
+
+/* Food names and dish names */
+.food-card .card-title,
+.item h3,
+.menu-item h3 {
+  @apply text-gray-900 font-bold;
+}
+
+/* Team member names and roles */
+.team-member h3,
+.team-card h3 {
+  @apply text-gray-900 font-bold;
+}
+
+/* Feature names and service categories */
+.feature-card h3,
+.service-card h3,
+.philosophy-card h3 {
+  @apply text-gray-900 font-bold;
+}
+
+/* Filter buttons and categories */
+.filter-btn,
+.category-btn {
+  @apply font-medium;
+}
+
+/* Icons with text labels */
+.icon-feature h3,
+.social-feature h3 {
+  @apply text-gray-900 font-bold;
+}
+
+/* Page-specific improvements */
+
+/* Menu page */
+.dietary-option h3,
+.menu-category h3 {
+  @apply text-gray-900 font-bold;
+}
+
+/* About page */
+.about-section h3,
+.team-section h3,
+.philosophy-section h3 {
+  @apply text-gray-900 font-bold;
+}
+
+/* Reservation page */
+.reservation-section h3,
+.info-card h3 {
+  @apply text-gray-900 font-bold;
+}
+
+/* Contact page */
+.contact-section h3,
+.contact-form h3,
+.map-section h3 {
+  @apply text-gray-900 font-bold;
+}
+
+/* Make social icons more visible */
+.social-icons a {
+  color: white !important;
+}
+
+/* White text for specific headings */
+.section-heading-white {
+  color: white !important;
+}
+
+/* White text for specific sections */
+.contact-info-white h3,
+.contact-info-white p,
+.contact-info-white a,
+.footer-heading-white {
+  color: white !important;
 }
